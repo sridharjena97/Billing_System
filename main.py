@@ -1,17 +1,9 @@
-# import os
 import sqlite3
-# import subprocess
 import time
 import tkinter as tk
 from ast import literal_eval
 from tkinter import messagebox
-# from tkinter.filedialog import asksaveasfilename
-# from tkinter import ttk
-# from tkcalendar import DateEntry
-from datetime import timedelta, datetime
-# from PIL import Image, ImageTk
-# from itertools import count
-# import threading
+from datetime import datetime
 from printwindow import PrintWindow
 from settings import SettingsWindow
 from history import History
@@ -43,7 +35,10 @@ class MainWindow:
     def about(self):
         """Shows information about the application"""
         messagebox.showinfo("About",
-                            "Developed By: Sridhar Jena. \n\nThis software is sole property of SRIDHWORK. Selling copy of this software is strictly prohibited.\nUse at your own risk.\nFor any query/customization, please contact sridhwork@gmail.com. \n\n© SridhWork 2020 all rights reserved.")
+                            "Developed By: Sridhar Jena. \n\nThis software is sole property of SRIDHWORK. Selling "
+                            "copy of this software is strictly prohibited.\nUse at your own risk.\nFor any "
+                            "query/customization, please contact sridhwork@gmail.com. \n\n© SridhWork 2020 all rights "
+                            "reserved.")
 
     def menubar(self):
         mainmenu = tk.Menu(self.master)
@@ -98,11 +93,7 @@ class MainWindow:
             if not output:
                 cursor.execute(
                     '''INSERT INTO appdata (srl,optional_label,default_city,default_state,default_note,table_label_1,
-                    print_heading,busniess_name,address_line1,address_line2,address_line3) VALUES ('1','Notes',
-                    'Jamshedpur','Jharkhand','Note:','Item Name','TAX INVOICE','EXAMPLE STORE','25/10 New market {
-                    Near SBI ATM}, simarpali, Jamshedpur, pin-831010','Busniess timing: 8AM - 8PM {online delivery 
-                    abailabe on phone. Call 999999999 for enquiry}','Tel- 0657 669 6652   Mobile- 999999999 / 
-                    88888888888');''')
+                    print_heading,busniess_name,address_line1,address_line2,address_line3) VALUES ('1','Notes', 'Jamshedpur','Jharkhand','Note:','Item Name','TAX INVOICE','EXAMPLE STORE','25/10 New market {Near SBI ATM}, simarpali, Jamshedpur, pin-831010','Busniess timing: 8AM - 8PM {online delivery abailabe on phone. Call 999999999 for enquiry}','Tel- 0657 669 6652   Mobile- 999999999 / 88888888888');''')
                 conn.commit()
             conn.close()
         except Exception as e:
