@@ -13,6 +13,16 @@ This is a billing system developed by Mr. Sridhar Jena for general billing purpo
 
 <img src="screenshots/mainpage.jpg" />
 
+* User Can get the next invoice number by clicking get invoice
+
+<img src="screenshots/getinvoice.gif" />
+
+
+* User can load data from Db by providing invoice number
+
+<img src="screenshots/loading.gif" />
+
+
 * User can create invoice by entering details of invoice
   
 
