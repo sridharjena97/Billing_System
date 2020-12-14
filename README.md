@@ -47,13 +47,11 @@ This is a billing system developed by Mr. Sridhar Jena for general billing purpo
 This application uses a number of open source projects to work properly:
 
 * [Python] - Base Interpreter!
-* [Tkinter] - awesome GUI library for python
-* [ghostscript] - Awesome library for dealing PS, PDF and many more.
+* [Tkinter] - An awesome GUI library for python
+* [ghostscript] - An awesome library for dealing PS, PDF and many more.
 * [VS Code] - An awesome source code editor
 * [Other-Python Modules] - Thanks to all opensource python modules used in this project
 
-And of course this app itself is open source with a [public repository]
- on GitHub.
 
 ### Installation
 
