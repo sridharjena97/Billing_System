@@ -8,37 +8,37 @@ This is a billing system developed by Mr. Sridhar Jena for general billing purpo
 
 # Features!
 
-* Attractive UI
+***Attractive UI***
 
 
 <img src="screenshots/mainpage.jpg" />
 
-* User Can get the next invoice number by clicking get invoice
+**User Can get the next invoice number by clicking get invoice**
 
 <img src="screenshots/getinvoice.gif" />
 
 
-* User can load data from Db by providing invoice number
+**User can load data from DB by providing invoice number**
 
 <img src="screenshots/loading.gif" />
 
 
-* User can create invoice by entering details of invoice
+**User can create invoice by entering details of invoice**
   
 
 <img src="screenshots/creating.gif" />
 
-* User can print a invoice
-* User can save PDF copy of a invoice
+**User can print an invoice**
+**User can save PDF copy of an invoice**
   
 <img src="screenshots/printing.gif" />
 
 
-* User can check invoice history. goto Options->History
+**User can check invoice history. goto Options->History**
   
 <img src="screenshots/history.gif" />
 
-* User can modify template data as per their busniess. goto Options->Settings
+**User can modify template data as per their business. goto Options->Settings**
 
 <img src="screenshots/settings.gif" />
 
