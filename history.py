@@ -76,7 +76,7 @@ class History:
             start = start.strftime("%Y-%m-%d %H:%M:%S")
             end = end + timedelta(days=1)
             end = end.strftime("%Y-%m-%d %H:%M:%S")
-            cnx = sqlite3.connect("database")
+            cnx = sqlite3.connect("DB/database")
             cursor = cnx.cursor()
             query = f"SELECT * FROM medicalbill WHERE entry_time BETWEEN '{start}' AND  '{end}';"
             cursor.execute(query)

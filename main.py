@@ -55,7 +55,7 @@ class MainWindow:
     def connectDB(self):
         """Establishes a connection to database"""
         try:
-            conn = sqlite3.connect("database")
+            conn = sqlite3.connect("DB/database")
             cursor = conn.cursor()
             cursor.execute(''' CREATE TABLE IF NOT EXISTS medicalbill(
                     invoice_no INT PRIMARY KEY UNIQUE NOT NULL,
@@ -178,7 +178,7 @@ class MainWindow:
         label.grid(ipadx=ipadx, ipady=ipady, columnspan=columnspan, rowspan=rowspan, row=row, column=column)
 
     def showWidgets(self):
-        self.master.cnx = sqlite3.connect("database")
+        self.master.cnx = sqlite3.connect("DB/database")
         cursor = self.master.cnx.cursor()
         cursor.execute("SELECT * FROM appdata WHERE srl=1")
         for data in cursor:

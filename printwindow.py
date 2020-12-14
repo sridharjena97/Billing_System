@@ -59,7 +59,7 @@ class PrintWindow:
         tk.Button(self.master.frame2, text="Close", font=font2, bd=3, relief=tk.RAISED,
                   command=self.master.destroy).pack(side=tk.LEFT, padx=10, pady=5)
         # creating casvas and ploting data
-        self.master.cnx = sqlite3.connect("database")
+        self.master.cnx = sqlite3.connect("DB/database")
         cursor = self.master.cnx.cursor()
         cursor.execute("SELECT * FROM appdata WHERE srl=1")
         for data in cursor:
@@ -143,7 +143,7 @@ class PrintWindow:
 
         except:
             messagebox.showerror("Error",
-                                 "This Program require ghostscript to run properly.\n You can istall ghostscript from "
+                                 "This Program require ghostscript to run properly.\n You can install ghostscript from "
                                  "<https://ghostscript.com/download/gsdnld.html>.\n If you are in windows and have "
                                  "chocolaty installed. issue command <choco install ghostscript> to install. After "
                                  "installation add it's bin and lb file to path.")
@@ -153,13 +153,12 @@ class PrintWindow:
             self.canvas.postscript(file="temp/tmp.ps", colormode='color')
             process = subprocess.Popen(["ps2pdf", "temp/tmp.ps", "temp/temp.pdf"], shell=True)
             process.wait()
-            current_directory = os.path.dirname(__file__)
-            target_file = os.path.join(current_directory, 'temp/temp.pdf')
+            target_file = os.path.abspath('temp/temp.pdf')
             os.startfile(target_file, "print")
 
         except:
             messagebox.showerror("Error",
-                                 "This Program require ghostscript to run properly.\n You can istall ghostscript from "
+                                 "This Program require ghostscript to run properly.\n You can install ghostscript from "
                                  "<https://ghostscript.com/download/gsdnld.html>.\n If you are in windows and have "
                                  "chocolaty installed. issue command <choco install ghostscript> to install. After "
                                  "installation add it's bin and lb file to path.")

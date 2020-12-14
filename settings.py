@@ -82,7 +82,7 @@ class SettingsWindow:
 
     def extractSettingsData(self):
         '''Exatracts settings data fom database and set the widgets'''
-        conn = sqlite3.connect("database")
+        conn = sqlite3.connect("DB/database")
         cursor = conn.cursor()
         cursor.execute("SELECT * FROM appdata WHERE srl='1'")
         for data in cursor:
@@ -120,7 +120,7 @@ class SettingsWindow:
         address_line1 = self.prepare(self.master.address_line1.get())
         address_line2 = self.prepare(self.master.address_line2.get())
         address_line3 = self.prepare(self.master.address_line3.get())
-        conn = sqlite3.connect("database")
+        conn = sqlite3.connect("DB/database")
         cursor = conn.cursor()
         query = f'''UPDATE appdata SET optional_label='{optional_label}',default_city='{default_city}',default_state='{default_state}',default_note='{default_note}',table_label_1='{table_label_1}',print_heading='{print_heading}',busniess_name='{busniess_name}',address_line1='{address_line1}',address_line2='{address_line2}',address_line3 ='{address_line3}'  WHERE srl=1'''
         cursor.execute(query)
