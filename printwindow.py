@@ -145,7 +145,7 @@ class PrintWindow:
             messagebox.showerror("Error",
                                  "This Program require ghostscript to run properly.\n You can install ghostscript from "
                                  "<https://ghostscript.com/download/gsdnld.html>.\n If you are in windows and have "
-                                 "chocolaty installed. issue command <choco install ghostscript> to install. After "
+                                 "chocolaty installed. Issue command <choco install ghostscript> to install. After "
                                  "installation add it's bin and lb file to path.")
 
     def printData(self):
@@ -160,7 +160,7 @@ class PrintWindow:
             messagebox.showerror("Error",
                                  "This Program require ghostscript to run properly.\n You can install ghostscript from "
                                  "<https://ghostscript.com/download/gsdnld.html>.\n If you are in windows and have "
-                                 "chocolaty installed. issue command <choco install ghostscript> to install. After "
+                                 "chocolaty installed. Issue command <choco install ghostscript> to install. After "
                                  "installation add it's bin and lb file to path.")
 
 

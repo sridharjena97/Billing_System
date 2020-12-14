@@ -460,7 +460,7 @@ class MainWindow:
             messagebox.showwarning("Information", "Customer Name Required!")
             return False
         elif table[0][0] == "":
-            messagebox.showwarning("Information", "Atleast 1 Item Required!")
+            messagebox.showwarning("Information", "At least 1 Item Required!")
             return False
         elif count == 1:
             rowcount = 1
@@ -521,7 +521,7 @@ class MainWindow:
         """calls print preview window"""
         invoice = self.master.inv_no.get()
         if self.checkDuplicateInvoice(invoice):
-            ans = messagebox.askyesno("Question", "Invoice Already exist.\n Do you want to print DUPLICATE Invoice?")
+            ans = messagebox.askyesno("Question", "Invoice Already exists.\n Do you want to print DUPLICATE Invoice?")
             if ans:
                 customer = self.master.customer_name.get()
                 c_address = self.master.local_add.get()
