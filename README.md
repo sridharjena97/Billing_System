@@ -56,8 +56,8 @@ This application uses a number of open source projects to work properly:
 ### Installation
 
 Install the dependencies and devDependencies and start the Application.
-Note: These command only work on windows system with chocolaty installed. All script requre elevated powershell window
-for chocolaty installation please view [official installation page](https://chocolatey.org/install)
+Note: These commands only work on Windows system with chocolaty installed. All scripts require elevated powershell window.
+For chocolaty installation please view [official installation page](https://chocolatey.org/install)
 ```sh
 $ choco install python
 $ choco install ghostscript
@@ -75,7 +75,7 @@ For linux users ...
 
 ### Plugins
 
-This app currently not using/support any plugins
+This app currently do not use/support any plugins.
 
 
 ### Development
@@ -84,8 +84,8 @@ Want to contribute? Great!
 
 Open your favorite Terminal and run these commands.
 
-Note: These command only work on windows system with chocolaty installed. All script requre elevated powershell window
-for chocolaty installation please view [official installation page](https://chocolatey.org/install)
+Note: These command only work on windows system with chocolaty installed. All script require elevated powershell window.
+For chocolaty installation please view [official installation page](https://chocolatey.org/install)
 
 First Tab:
 ```sh
