@@ -185,7 +185,7 @@ class MainWindow:
             optional_label = data[1]
             default_city = data[2]
             default_state = data[3]
-            default_note = data[4]
+            self.master.default_note = data[4]
             table_label_1 = data[5]
 
         tk.Label(self.master, text="JENA Billing Systems", bg=self.master.theme, font="Magneto 30 bold", fg="navy",
@@ -204,7 +204,7 @@ class MainWindow:
         # setting default values
         self.master.city.set(default_city)
         self.master.state.set(default_state)
-        self.master.note.set(default_note)
+        self.master.note.set(self.master.default_note)
         # Basic Details
         # laself
         self.createGridLabel(master=frame1, text="Invoice no :", font=self.master.font1, row=0, column=0,
@@ -388,7 +388,7 @@ class MainWindow:
         columns = column + 1
         self.master.customer_name.set("")
         self.master.local_add.set("")
-        self.master.note.set("Dr. ")
+        self.master.note.set(self.master.default_note)
         for row in range(1, rows):
             for column in range(1, columns):
                 index = (row, column)
