@@ -63,7 +63,7 @@ class PrintWindow:
         frame1.pack(fill="both")
         # adding the new frame to canvas window
         canvas0.create_window((0, 0), window=frame1, anchor="nw")
-        scrollbar.bind_all("<MouseWheel>", lambda event: self.canvas.yview_scroll(int(-1*(event.delta/120)), "units"))
+        scrollbar.bind_all("<MouseWheel>", lambda event: canvas0.yview_scroll(int(-1*(event.delta/120)), "units"))
 
         # Frame for buttons
         self.master.frame2 = tk.Frame(self.master, bg="gray30")
