@@ -38,6 +38,7 @@ class PrintWindow:
         doc = dictionary["doc"]
         purchage_data = dictionary["purchage_data"]
         total = dictionary["total"]
+        timestamp = dictionary["timestamp"]
 
         # FONTS
         fontlabel = "Eras 9 bold"
@@ -78,6 +79,8 @@ class PrintWindow:
         self.canvas.create_line(0, 45, 600, 45, dash=(200, 1))
         self.canvas.create_text(10, 70, font=fontlabel, text="INVOICE NUMBER:", anchor="w")
         self.canvas.create_text(120, 70, font=fontinvoice, text=invoice, anchor="w")
+        self.canvas.create_text(350, 70, font=fontlabel, text="DATE & TIME:", anchor="w")
+        self.canvas.create_text(430, 70, font=fontdata, text=timestamp, anchor="w")
         self.canvas.create_text(10, 100, font=fontlabel, text="CUSTOMER NAME:", anchor="w")
         self.canvas.create_text(120, 100, font=fontdata, text=customer, anchor="w")
         self.canvas.create_text(10, 130, font=fontlabel, text="ADDRESS:", anchor="w")
@@ -177,6 +180,7 @@ if __name__ == "__main__":
         "purchage_data": [[1, 1, 1, 1], [1, 1, 1, 1], [1, 1, 1, 1], [1, 1, 1, 1], [1, 1, 1, 1], [1, 1, 1, 1],
                           [1, 1, 1, 1], [1, 1, 1, 1], [1, 1, 1, 1], [1, 1, 1, 1]],
         "total": "total",
+        "timestamp": "21/12/2020"
     }
     app = PrintWindow(root, dictionary)
 

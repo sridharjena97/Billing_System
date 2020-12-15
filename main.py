@@ -530,6 +530,11 @@ class MainWindow:
                 doc = self.master.note.get()
                 purchage_data = self.getTable()
                 total = self.totalInvoiceValue()
+                cursor = self.master.cnx.cursor()
+                cursor.execute(f"SELECT entry_time FROM medicalbill WHERE invoice_no = '{invoice}';")
+                for data in cursor:
+                    timestamp = data[0]
+                cursor.close()
                 dictionary = {
                     "invoice": invoice,
                     "customer": customer,
@@ -539,6 +544,7 @@ class MainWindow:
                     "doc": doc,
                     "purchage_data": purchage_data,
                     "total": total,
+                    "timestamp": timestamp,
                 }
                 self.printWindow(PrintWindow, dictionary)
             else:
@@ -551,6 +557,12 @@ class MainWindow:
             doc = self.master.note.get()
             purchage_data = self.getTable()
             total = self.totalInvoiceValue()
+            self.pushInvoice()
+            cursor = self.master.cnx.cursor()
+            cursor.execute(f"SELECT entry_time FROM medicalbill WHERE invoice_no = '{invoice}';")
+            for data in cursor:
+                timestamp = data[0]
+            cursor.close()
             dictionary = {
                 "invoice": invoice,
                 "customer": customer,
@@ -560,8 +572,9 @@ class MainWindow:
                 "doc": doc,
                 "purchage_data": purchage_data,
                 "total": total,
+                "timestamp": timestamp,
             }
-            self.pushInvoice()
+
             self.printWindow(PrintWindow, dictionary)
 
     def printWindow(self, _class, dictionary):
