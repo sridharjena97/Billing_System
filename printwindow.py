@@ -3,6 +3,7 @@ import sqlite3
 from tkinter.filedialog import asksaveasfilename
 import threading
 from tkinter import messagebox
+from tkinter import ttk
 import subprocess
 import os
 
@@ -13,7 +14,8 @@ class PrintWindow:
         # Initializing Window
         self.master.geometry("650x620+100+20")
         self.master.minsize(650, 600)
-        self.master.configure(bg="gray20")
+        self.master.maxsize(650, 920)
+        self.master.configure(bg="gray30")
         self.master.title("Print")
         self.master.invoice = dictionary["invoice"]
         # Trying to set icon
@@ -48,8 +50,21 @@ class PrintWindow:
         fontdata2 = "Lucida 8 normal"
         font2 = "Arial 12 normal"
         # Creatting frame for displaying preview
-        frame1 = tk.Frame(self.master)
-        frame1.pack(fill=tk.BOTH)
+        frame = tk.Frame(self.master, bg="gray30")
+        frame.pack(fill="both", expand=1, padx=3, pady=3)
+        canvas0 = tk.Canvas(frame)
+        canvas0.pack(side=tk.LEFT, fill="both", expand=True)
+        scrollbar = ttk.Scrollbar(frame, orient=tk.VERTICAL, command=canvas0.yview)
+        scrollbar.pack(side="right", fill="y")
+        canvas0.configure(yscrollcommand=scrollbar.set)
+        canvas0.bind('<Configure>', lambda e: canvas0.configure(scrollregion=canvas0.bbox("all")))
+        # adding a new frame to canvas to create new window
+        frame1 = tk.Frame(canvas0, bg="grey20")
+        frame1.pack(fill="both")
+        # adding the new frame to canvas window
+        canvas0.create_window((0, 0), window=frame1, anchor="nw")
+        scrollbar.bind_all("<MouseWheel>", lambda event: self.canvas.yview_scroll(int(-1*(event.delta/120)), "units"))
+
         # Frame for buttons
         self.master.frame2 = tk.Frame(self.master, bg="gray30")
         self.master.frame2.pack(side=tk.BOTTOM, fill=tk.X)
@@ -72,9 +87,9 @@ class PrintWindow:
             address_line2 = self.recover(data[9])
             address_line3 = self.recover(data[10])
 
-        self.canvaswidth = 600
-        self.canvasheight = 550
-        self.canvas = tk.Canvas(self.master, height=self.canvasheight, width=self.canvaswidth, bd=1, relief=tk.GROOVE)
+        self.canvaswidth = 595
+        self.canvasheight = 842
+        self.canvas = tk.Canvas(frame1, height=self.canvasheight, width=self.canvaswidth, bd=1, relief=tk.GROOVE)
         self.canvas.create_text(300, 25, font="Rockwell 17 bold", text=print_heading)
         self.canvas.create_line(0, 45, 600, 45, dash=(200, 1))
         self.canvas.create_text(10, 70, font=fontlabel, text="INVOICE NUMBER:", anchor="w")
